@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>onekeydown</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        transition: 300ms background-color, 300ms color;
+        background: #eee;
+        color: #222;
+      }
+
+      .root {
+        padding: 3rem;
+        font-size: 32px;
+        font-family: "JetBrains Mono", "Input", "Menlo", "Consolas", monospace;
+        white-space: pre-wrap;
+      }
+
+      .keydown {
+        background: hsl(0, 100%, 97%);
+        color: hsl(0, 100%, 20%);
+      }
+
+      .keyup {
+        background: hsl(200, 100%, 97%);
+        color: hsl(200, 100%, 20%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="root">Press any key</div>
+    <script type="module">
+      const root = document.getElementById("root");
+
+      function handler(event) {
+        event.preventDefault();
+        document.body.className = event.type;
+        root.textContent = [
+          `timeStamp --- ${event.timeStamp}`,
+          `type -------- ${event.type}`,
+          `key --------- ${event.key}`,
+          `code -------- ${event.code}`,
+          `repeat ------ ${event.repeat}`
+        ].join("\n");
+      }
+
+      document.addEventListener("keydown", handler);
+      document.addEventListener("keyup", handler);
+    </script>
+  </body>
+</html>
