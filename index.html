@@ -6,18 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>onekeydown</title>
     <style>
+      :root {
+        --transition-speed: 100ms;
+        --font-monospace: "JetBrains Mono", "Input", "Menlo", "Consolas", monospace;
+      }
+
       body {
         padding: 0;
         margin: 0;
-        transition: 300ms background-color, 300ms color;
+        transition: var(--transition-speed) background-color,
+          var(--transition-speed) color;
         background: #eee;
         color: #222;
       }
 
       .root {
         padding: 3rem;
-        font-size: 32px;
-        font-family: "JetBrains Mono", "Input", "Menlo", "Consolas", monospace;
+        font-size: 2rem;
+        font-family: var(--font-monospace);
         white-space: pre-wrap;
       }
 
